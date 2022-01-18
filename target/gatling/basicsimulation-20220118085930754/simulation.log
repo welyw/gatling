@@ -1,0 +1,5 @@
+RUN	computerdatabase.BasicSimulation	basicsimulation	1642496370754	 	3.6.1
+USER	BasicSimulation	START	1642496373001
+REQUEST		request_1	1642496373016	1642496373620	OK	 
+REQUEST		request_1 Redirect 1	1642496373625	1642496373927	OK	 
+USER	BasicSimulation	END	1642496378939
