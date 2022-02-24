@@ -18,7 +18,7 @@ class BasicSimulation extends Simulation { // 3
 
   val scn = scenario("BasicSimulation") // 7
     .exec(
-      http("request_1") // 8
+      http("request_x") // 8
         .get("/")
     ) // 9
     .pause(5) // 10
