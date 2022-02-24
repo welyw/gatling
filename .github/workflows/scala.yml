@@ -8,18 +8,20 @@ on:
     inputs:
       name:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
+        description: 'Commit to trigger'
         # Default value if no value is explicitly provided
-        default: 'World'
+        default: 'latest'
         # Input has to be provided for the workflow to run
         required: true
 
 jobs:
   build:
-
     runs-on: self-hosted
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Run tests
-      run: mvn -e gatling:test -D"gatling.simulationClass=computerdatabase.BasicSimulation"
+      - uses: actions/checkout@v2
+        if: ${{ github.event.inputs.name }} != ''
+        with:
+          ref: ${{ github.event.inputs.name }}
+      - name: Run tests on specific commit
+        run: mvn -e gatling:test -D"gatling.simulationClass=computerdatabase.BasicSimulation"
+    
