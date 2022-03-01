@@ -28,5 +28,5 @@ jobs:
         uses: action/upload-artifact@v2
         with:
           name: gatling test on computerdb
-          path: code/gatling/
+          path: artifact/
     
