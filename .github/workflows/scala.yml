@@ -22,6 +22,11 @@ jobs:
         if: ${{ github.event.inputs.name }} != 'latest'
         with:
           ref: ${{ github.event.inputs.name }}
-      - name: Run tests on specific commit
-        run: mvn -e gatling:test -D"gatling.simulationClass=computerdatabase.BasicSimulation"
+     # - name: Run tests on specific commit
+     #   run: mvn -e gatling:test -D"gatling.simulationClass=computerdatabase.BasicSimulation"
+      - name: Upload artifacts
+        uses: action/upload-artifact@v2
+        with:
+          name: gatling test on computerdb
+          path: code/gatling/
     
