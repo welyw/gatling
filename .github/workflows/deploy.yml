@@ -20,3 +20,9 @@ jobs:
       - name: deploy
         run: echo ${{ secrets.PROD_DEPLOYMENT_SECRET }}
       # This command is just an example to show your secret being printed
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: upload secret artifact
+          path: artifact/
+        
