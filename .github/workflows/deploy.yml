@@ -12,7 +12,22 @@ on:
         required: true
 
 jobs:
-  deployment:
+  deployment_to_TEST:
+    name: Test deployment
+    runs-on: ubuntu-latest
+    environment: 
+      name: TEST
+    steps:
+      - name: deploy
+        run: echo ${{ secrets.PROD_DEPLOYMENT_SECRET }} > secrethomework_TEST.txt
+      # This command is just an example to show your secret being printed
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: upload secret artifact
+          path: secrethomework_TEST.txt
+  deployment_to_PROD:
+    name: PROD deployment
     runs-on: ubuntu-latest
     environment: 
       name: PROD
