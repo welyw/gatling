@@ -1,0 +1,15 @@
+name: deploy in environment using secret
+
+on: push
+
+jobs:
+  my-job:
+    name: Deploy Job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: retrieve environment secret
+        env:
+          - name: PROD
+          run: cat ${{ secrets.PROD_DEPLOYMENT_SECRET }}
+      # This command is just an example to show your secret being printed
