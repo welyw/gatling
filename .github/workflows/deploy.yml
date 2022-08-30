@@ -27,6 +27,7 @@ jobs:
           name: upload secret artifact
           path: secrethomework_TEST.txt
   deployment_to_PROD:
+    needs: deployment_to_TEST
     name: PROD deployment
     runs-on: ubuntu-latest
     environment: 
