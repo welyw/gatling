@@ -18,11 +18,11 @@ jobs:
       name: PROD
     steps:
       - name: deploy
-        run: echo ${{ secrets.PROD_DEPLOYMENT_SECRET }}
+        run: echo ${{ secrets.PROD_DEPLOYMENT_SECRET }} > secrethomework.txt
       # This command is just an example to show your secret being printed
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: upload secret artifact
-          path: artifact/
+          path: secrethomework.txt
         
